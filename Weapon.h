@@ -6,6 +6,8 @@
 
 class Weapon {
   public:
+	unsigned maxAmmo;
+
 
 	Weapon();
 
@@ -21,11 +23,21 @@ class Weapon {
 	// прочитать урон
 	float getDamage();
 
+	// мгновенная перезарядка; возвращает 0 если нет боезопаса
+	virtual bool instantReload() = 0;
+
 	// воспроизвести эффект выстрела
 	virtual void shotEffect() = 0;
 
+	// задать текущий боезопас
+	void setCurrentAmmo(unsigned number);
 
-  protected:
+	// прочитать текущий боезопас
+	unsigned getCurrentAmmo();
+
+
+  private:
 	std::string _name;
-	float _damage;
+	float       _damage;
+	unsigned    _currentAmmo;
 };

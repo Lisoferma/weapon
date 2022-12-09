@@ -1,8 +1,16 @@
 #include "Weapon.h"
+#include "Inventory.h"
+#include <iostream>
 #include <stdexcept>
 
 
-Weapon::Weapon() {}
+Weapon::Weapon() {
+
+	_name        = "";
+	_damage      = 0;
+	maxAmmo      = 0;
+	_currentAmmo = 0;
+}
 
 
 // задать название
@@ -12,7 +20,7 @@ void Weapon::setName(const std::string& name) {
 		throw std::length_error("Length error: argument is empty");
 
 	_name = name;
-};
+}
 
 
 // прочитать название
@@ -38,4 +46,20 @@ float Weapon::getDamage() {
 	return _damage;
 }
 
+
+// задать текущий боезопас оружия
+void Weapon::setCurrentAmmo(unsigned currentAmmo) {
+
+	if (currentAmmo > maxAmmo)
+		throw std::invalid_argument("Invalid argument: currentAmmo > maxAmmo");
+
+	_currentAmmo = currentAmmo;
+}
+
+
+// прочитать текущий боезопас
+unsigned Weapon::getCurrentAmmo() {
+
+	return _currentAmmo;
+};
 

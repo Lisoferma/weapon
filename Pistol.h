@@ -12,5 +12,8 @@ class Pistol : public Weapon {
 
 	// воспроизвести эффект выстрела
 	void shotEffect() override;
+
+	// мгновенная перезарядка
+	bool instantReload() override;
 };
 
