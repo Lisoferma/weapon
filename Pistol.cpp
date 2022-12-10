@@ -7,6 +7,8 @@ Pistol::Pistol() {
 
 	setName("Standard pistol");
 	setDamage(10);
+	maxAmmo = 6;
+	setCurrentAmmo(6);
 }
 
 
@@ -17,10 +19,23 @@ Pistol::Pistol(const std::string& name, float damage) {
 }
 
 
+// выстрел; возвращает 0 если магазин пуст
+bool Pistol::shoot() {
+
+	if (getCurrentAmmo() <= 0) {
+		return 0;
+	}
+
+	setCurrentAmmo(getCurrentAmmo() - 1);
+
+	return 1;
+}
+
+
 // воспроизвести эффект выстрела
 void Pistol::shotEffect() {
 
-	std::cout << "Pistol shot effect";
+	std::cout << "*Pistol shot effect*";
 }
 
 
@@ -28,7 +43,6 @@ void Pistol::shotEffect() {
 bool Pistol::instantReload() {
 	
 	if (Inventory::pistolAmmo <= 0) {
-		//std::cout << "Shortage of pistol ammunition";
 		return 0;
 	}
 	else if (Inventory::pistolAmmo >= maxAmmo - getCurrentAmmo()) {

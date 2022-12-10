@@ -23,6 +23,9 @@ class Weapon {
 	// прочитать урон
 	float getDamage();
 
+	// выстрел
+	virtual bool shoot() = 0;
+
 	// мгновенная перезарядка; возвращает 0 если нет боезопаса
 	virtual bool instantReload() = 0;
 
