@@ -1,5 +1,5 @@
-// описывает общие характеристики и функционал для всего оружия
-// @author Пилипейко А.А.
+п»ї// РѕРїРёСЃС‹РІР°РµС‚ РѕР±С‰РёРµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё Рё С„СѓРЅРєС†РёРѕРЅР°Р» РґР»СЏ РІСЃРµРіРѕ РѕСЂСѓР¶РёСЏ
+// @author РџРёР»РёРїРµР№РєРѕ Рђ.Рђ.
 
 
 #include "Weapon.h"
@@ -35,7 +35,7 @@ Weapon::Weapon(const std::string& name, float damage,
 }
 
 
-// задать название
+// Р·Р°РґР°С‚СЊ РЅР°Р·РІР°РЅРёРµ
 void Weapon::setName(const std::string& name) {
 
 	if (name.empty())
@@ -45,14 +45,14 @@ void Weapon::setName(const std::string& name) {
 }
 
 
-// прочитать название
+// РїСЂРѕС‡РёС‚Р°С‚СЊ РЅР°Р·РІР°РЅРёРµ
 std::string Weapon::getName() const {
 
 	return _name;
 }
 
 
-// задать урон
+// Р·Р°РґР°С‚СЊ СѓСЂРѕРЅ
 void Weapon::setDamage(float damage) {
 
 	if (damage <= 0) 
@@ -62,14 +62,14 @@ void Weapon::setDamage(float damage) {
 }
 
 
-// прочитать урон
+// РїСЂРѕС‡РёС‚Р°С‚СЊ СѓСЂРѕРЅ
 float Weapon::getDamage() const {
 	
 	return _damage;
 }
 
 
-// выстрел, отнимает один патрон из обоймы; возвращает 0 если магазин пуст
+// РІС‹СЃС‚СЂРµР», РѕС‚РЅРёРјР°РµС‚ РѕРґРёРЅ РїР°С‚СЂРѕРЅ РёР· РѕР±РѕР№РјС‹; РІРѕР·РІСЂР°С‰Р°РµС‚ 0 РµСЃР»Рё РјР°РіР°Р·РёРЅ РїСѓСЃС‚
 bool Weapon::shoot() {
 
 	if (getCurrentAmmo() <= 0) {
@@ -82,7 +82,7 @@ bool Weapon::shoot() {
 }
 
 
-// задать текущий боезопас оружия
+// Р·Р°РґР°С‚СЊ С‚РµРєСѓС‰РёР№ Р±РѕРµР·РѕРїР°СЃ РѕСЂСѓР¶РёСЏ
 void Weapon::setCurrentAmmo(unsigned currentAmmo) {
 
 	if (currentAmmo > maxAmmo)
@@ -92,7 +92,7 @@ void Weapon::setCurrentAmmo(unsigned currentAmmo) {
 }
 
 
-// прочитать текущий боезопас
+// РїСЂРѕС‡РёС‚Р°С‚СЊ С‚РµРєСѓС‰РёР№ Р±РѕРµР·РѕРїР°СЃ
 unsigned Weapon::getCurrentAmmo() const {
 
 	return _currentAmmo;
