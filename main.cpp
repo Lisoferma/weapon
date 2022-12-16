@@ -63,6 +63,9 @@ int main() {
 			cout << "> Unrecognized command" << endl;
 		}
 
+		// очистка потока ввода
+		while (cin.get() != '\n');
+
 	} while (input != 'e' && input != 'E');
 
 	return 0;
