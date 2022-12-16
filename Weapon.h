@@ -1,3 +1,7 @@
+// описывает общие характеристики и функционал дл€ всего оружи€
+// @author ѕилипейко ј.ј.
+
+
 #pragma once
 
 
@@ -11,22 +15,28 @@ class Weapon {
 
 	Weapon();
 
+	Weapon(const std::string& name, float damage);
+
+	Weapon(const std::string& name, float damage,
+	       unsigned _currentAmmo, unsigned maxAmmo);
+
 	// задать название
 	void setName(const std::string& name);
 
 	// прочитать название
-	std::string& getName();
+	std::string getName() const;
 
 	// задать урон
 	void setDamage(float damage);
 
 	// прочитать урон
-	float getDamage();
+	float getDamage() const;
 
 	// выстрел
-	virtual bool shoot() = 0;
+	bool shoot();
 
 	// мгновенна€ перезар€дка; возвращает 0 если нет боезопаса
+	// дочерний класс должен использовать свой тип патронов из Invenory.h
 	virtual bool instantReload() = 0;
 
 	// воспроизвести эффект выстрела
@@ -36,7 +46,7 @@ class Weapon {
 	void setCurrentAmmo(unsigned number);
 
 	// прочитать текущий боезопас
-	unsigned getCurrentAmmo();
+	unsigned getCurrentAmmo() const;
 
 
   private:

@@ -1,6 +1,11 @@
+// описывает общие характеристики и функционал для всего оружия
+// @author Пилипейко А.А.
+
+
 #include "Weapon.h"
-#include "Inventory.h"
+
 #include <iostream>
+#include <string>
 #include <stdexcept>
 
 
@@ -10,6 +15,23 @@ Weapon::Weapon() {
 	_damage      = 0;
 	maxAmmo      = 0;
 	_currentAmmo = 0;
+}
+
+
+Weapon::Weapon(const std::string& name, float damage) {
+
+	setName(name);
+	setDamage(damage);
+}
+
+
+Weapon::Weapon(const std::string& name, float damage,
+			   unsigned maxAmmo, unsigned currentAmmo) {
+
+	setName(name);
+	setDamage(damage);
+	this->maxAmmo = maxAmmo;
+	setCurrentAmmo(currentAmmo);
 }
 
 
@@ -24,7 +46,7 @@ void Weapon::setName(const std::string& name) {
 
 
 // прочитать название
-std::string& Weapon::getName() {
+std::string Weapon::getName() const {
 
 	return _name;
 }
@@ -41,9 +63,22 @@ void Weapon::setDamage(float damage) {
 
 
 // прочитать урон
-float Weapon::getDamage() {
+float Weapon::getDamage() const {
 	
 	return _damage;
+}
+
+
+// выстрел, отнимает один патрон из обоймы; возвращает 0 если магазин пуст
+bool Weapon::shoot() {
+
+	if (getCurrentAmmo() <= 0) {
+		return 0;
+	}
+
+	setCurrentAmmo(getCurrentAmmo() - 1);
+
+	return 1;
 }
 
 
@@ -58,7 +93,7 @@ void Weapon::setCurrentAmmo(unsigned currentAmmo) {
 
 
 // прочитать текущий боезопас
-unsigned Weapon::getCurrentAmmo() {
+unsigned Weapon::getCurrentAmmo() const {
 
 	return _currentAmmo;
 };

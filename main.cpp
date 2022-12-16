@@ -1,4 +1,8 @@
-#include "Pistol.h"
+﻿// пример использования классов с наследованием
+// @author Пилипейко А.А.
+
+
+#include "Colt.h"
 #include "Inventory.h"
 #include <iostream>
 
@@ -7,47 +11,56 @@ using namespace std;
 
 
 int main() {
-	Pistol pistol;
+	Colt colt;
 	char input;
 
-	cout << "Gun: " << pistol.getName() << endl;
 
 	do {
-		cout << "Current magazine ammo: " << pistol.getCurrentAmmo()
-			 << "/" << pistol.maxAmmo << endl;
-		cout << "Pistol ammunition: " << Inventory::pistolAmmo << endl;
+		cout << "\nGun: "                 << colt.getName() << endl;
+		cout << "Current magazine ammo: " << colt.getCurrentAmmo();
+		cout << "/"                       << colt.maxAmmo << endl;
+		cout << "Total pistol ammo: "     << Inventory::pistolAmmo << endl;
 
-		cout << "\n  Enter:" << endl;
-		cout << "  [s] for shooting"  << endl;
-		cout << "  [r] for reloading" << endl;
-		cout << "  [a] for add ammo"  << endl;
-		cout << "  [e] for exit"      << endl;
+		cout << "\n  Enter:"           << endl;
+		cout << "  [s] shooting"       << endl;
+		cout << "  [r] reloading"      << endl;
+		cout << "  [a] add total ammo" << endl;
+		cout << "  [e] exit"           << endl;
 
 		cout << "\nInput: ";
 		cin  >> input;
 		cout << endl;
 
+
 		if (input == 's' || input == 'S') {
-			if (pistol.shoot() == 0) {
-				cout << "Shortage of pistol ammunition" << endl << endl;
+
+			if (colt.shoot() == 0) {
+				cout << "> The gun magazine is empty" << endl;
 			}
 			else {
-				pistol.shotEffect();
-				cout << endl << endl;
+				colt.shotEffect();
+				cout << endl;
 			}
+
 		}
 		else if (input == 'r' || input == 'R') {
-			if (pistol.instantReload() == 0) {
-				cout << "Shortage of pistol ammunition" << endl;
+
+			if (colt.instantReload() == 0) {
+				cout << "> Shortage of pistol ammunition" << endl;
 			}
 			else {
-				pistol.instantReload();
-				cout << "Gun reloaded" << endl << endl;
+				cout << "> Gun reloaded" << endl;
 			}
+
 		}
 		else if (input == 'a' || input == 'A') {
-			Inventory::pistolAmmo += 10;
-			cout << "\n+10 ammo" << endl;
+
+			Inventory::pistolAmmo += 5;
+			cout << "> +5 ammo" << endl;
+
+		}
+		else {
+			cout << "> Unrecognized command" << endl;
 		}
 
 	} while (input != 'e' && input != 'E');

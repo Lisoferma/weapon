@@ -1,3 +1,8 @@
+// описывает общий функционал для пистолетов, 
+// в частности перезарядку и тип используемых патронов -- pistolAmmo 
+// @author Пилипейко А.А.
+
+
 #pragma once
 
 
@@ -6,17 +11,9 @@
 
 class Pistol : public Weapon {
   public:
-	Pistol();
+	//Pistol();
 
-	Pistol(const std::string& name, float damage);
-
-	// выстрел
-	bool shoot() override;
-
-	// воспроизвести эффект выстрела
-	void shotEffect() override;
-
-	// мгновенная перезарядка
-	bool instantReload() override;
+	// мгновенная перезарядка; тратит pistolAmmo из Inventory.h
+	// возвращает 0 если нет боезопаса
+	bool instantReload() override final;
 };
-
