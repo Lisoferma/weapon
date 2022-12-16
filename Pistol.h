@@ -14,6 +14,6 @@ class Pistol : public Weapon {
 	//Pistol();
 
 	// мгновенная перезарядка; тратит pistolAmmo из Inventory.h
-	// возвращает 0 если нет боезопаса
+	// возвращает 0 если нет боезапаса
 	bool instantReload() override final;
 };

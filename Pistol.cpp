@@ -17,7 +17,7 @@
 
 
 // мгновенная перезарядка; тратит pistolAmmo из Inventory.h
-// возвращает 0 если нет боезопаса
+// возвращает 0 если нет боезапаса
 bool Pistol::instantReload() {
 
 	if (Inventory::pistolAmmo <= 0) {
