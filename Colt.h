@@ -1,4 +1,4 @@
-﻿// описывает функционал пистолета Colt
+﻿
 // @author Пилипейко А.А.
 
 
@@ -7,7 +7,7 @@
 
 #include "Pistol.h"
 
-
+// описывает функционал пистолета Colt
 class Colt : public Pistol {
   public:
 	Colt();
